@@ -1,0 +1,40 @@
+{
+  "name": "YunaMessage",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "assistant"
+      ],
+      "description": "Who said it"
+    },
+    "content": {
+      "type": "string",
+      "description": "The message text"
+    },
+    "emotion": {
+      "type": "string",
+      "description": "Yuna's facial emotion attached to an assistant reply"
+    }
+  },
+  "required": [
+    "role",
+    "content"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

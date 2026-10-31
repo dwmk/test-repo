@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 264 34% 6%;
+    --foreground: 270 22% 96%;
+    --card: 264 28% 10%;
+    --card-foreground: 270 22% 96%;
+    --popover: 264 30% 9%;
+    --popover-foreground: 270 22% 96%;
+    --primary: 271 84% 70%;
+    --primary-foreground: 268 40% 8%;
+    --secondary: 265 20% 16%;
+    --secondary-foreground: 270 20% 94%;
+    --muted: 265 18% 15%;
+    --muted-foreground: 268 14% 68%;
+    --accent: 330 82% 72%;
+    --accent-foreground: 330 50% 10%;
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 268 22% 20%;
+    --input: 268 22% 22%;
+    --ring: 271 84% 70%;
+    --chart-1: 271 84% 70%;
+    --chart-2: 330 82% 72%;
+    --chart-3: 190 80% 62%;
+    --chart-4: 45 90% 66%;
+    --chart-5: 265 60% 62%;
+    --radius: 1rem;
+    --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 264 28% 8%;
+    --sidebar-foreground: 270 18% 88%;
+    --sidebar-primary: 271 84% 70%;
+    --sidebar-primary-foreground: 268 40% 8%;
+    --sidebar-accent: 265 20% 16%;
+    --sidebar-accent-foreground: 270 20% 94%;
+    --sidebar-border: 268 22% 18%;
+    --sidebar-ring: 271 84% 70%;
+  }
+
+  .dark {
+    --background: 264 34% 6%;
+    --foreground: 270 22% 96%;
+    --card: 264 28% 10%;
+    --card-foreground: 270 22% 96%;
+    --popover: 264 30% 9%;
+    --popover-foreground: 270 22% 96%;
+    --primary: 271 84% 70%;
+    --primary-foreground: 268 40% 8%;
+    --secondary: 265 20% 16%;
+    --secondary-foreground: 270 20% 94%;
+    --muted: 265 18% 15%;
+    --muted-foreground: 268 14% 68%;
+    --accent: 330 82% 72%;
+    --accent-foreground: 330 50% 10%;
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 268 22% 20%;
+    --input: 268 22% 22%;
+    --ring: 271 84% 70%;
+    --chart-1: 271 84% 70%;
+    --chart-2: 330 82% 72%;
+    --chart-3: 190 80% 62%;
+    --chart-4: 45 90% 66%;
+    --chart-5: 265 60% 62%;
+    --sidebar-background: 264 28% 8%;
+    --sidebar-foreground: 270 18% 88%;
+    --sidebar-primary: 271 84% 70%;
+    --sidebar-primary-foreground: 268 40% 8%;
+    --sidebar-accent: 265 20% 16%;
+    --sidebar-accent-foreground: 270 20% 94%;
+    --sidebar-border: 268 22% 18%;
+    --sidebar-ring: 271 84% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+}
+
+@layer components {
+  .aurora-stage {
+    position: relative;
+    overflow: hidden;
+    background-color: hsl(264 34% 6%);
+    background-image:
+      radial-gradient(58% 52% at 20% 16%, hsl(271 84% 62% / 0.32), transparent 70%),
+      radial-gradient(52% 48% at 84% 26%, hsl(330 82% 64% / 0.24), transparent 72%),
+      radial-gradient(70% 58% at 48% 104%, hsl(222 78% 56% / 0.2), transparent 70%);
+  }
+
+  .aurora-stage::after {
+    content: '';
+    position: absolute;
+    inset: -30%;
+    pointer-events: none;
+    background: conic-gradient(from 0deg, transparent, hsl(271 84% 74% / 0.12), transparent 42%);
+    animation: aurora-drift 34s linear infinite;
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, hsl(264 28% 13% / 0.82), hsl(264 32% 7% / 0.95));
+    backdrop-filter: blur(26px) saturate(150%);
+    -webkit-backdrop-filter: blur(26px) saturate(150%);
+  }
+
+  .scroll-slim {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(268 22% 28%) transparent;
+  }
+
+  .scroll-slim::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scroll-slim::-webkit-scrollbar-thumb {
+    background-color: hsl(268 22% 28%);
+    border-radius: 999px;
+  }
+
+  .scroll-slim::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@keyframes aurora-drift {
+  to {
+    transform: rotate(360deg);
+  }
+}
